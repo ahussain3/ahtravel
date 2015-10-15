@@ -1,0 +1,21 @@
+{
+  "name": "site",
+  "version": "0.0.1",
+  "description": "Awais's dashboard site",
+  "main": "server.js",
+  "author": "Scotch",
+  "scripts": {
+    "start": "node server.js",
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "dependencies": {
+    "express": "~4.6.1",
+    "mongoose": "~3.8.13",
+    "body-parser": "~1.4.3"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.1"
+  }
+}
