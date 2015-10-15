@@ -17,8 +17,14 @@ module.exports.create = function (req, res) {
 };
 
 module.exports.list = function (req, res) {
-	model.where_now.find({}, function (err, results) {
-		res.json(results);
+	model.where_now.find().sort({last_updated: -1})
+	.exec( function (err, results) {
+		if (err) return console.error(err);
+		var newRes = results.map(function(where) {
+			where.updated_message = "posted " + moment(where.last_updated).fromNow();
+			return where;
+		});
+		res.json(newRes);
 	});
 };
 
