@@ -16,6 +16,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.models = require('./server/models/index.js');
+
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + "/client/views/index.html");
 	console.log("you requested the homepage.");
