@@ -2,28 +2,41 @@
 <html>
 <head>
 	<title>Awais Hussain</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+
 </head>
 <body ng-app='myApp'>
 
 	<div ng-cloak ng-controller="WhereNowController">
-		<h2>Where am I now?</h2>
-		<h3>{{ locations.message }}</h3>
-		<h4>{{ locations.updated_message }}</h4>
+		<h2>Where I am right now</h2>
+		<h3>{{ where_now.message }}</h3>
+		<h4>{{ where_now.updated_message }}</h4>
 	</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<div ng-cloak ng-controller="WhereNextController">
+		<h2>Where I'm going next</h2>
+		<h3>{{ where_next.message }}: {{where_next.leave_date_message}}</h3>
+		<h4>{{ where_next.updated_message }}</h4>
+	</div>
+
 
 <script type="text/javascript">
 	var myApp = angular.module('myApp', []);
 	
 	myApp.controller('WhereNowController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/where_now").success(function(data) {
-				$scope.locations = data;
+				$scope.where_now = data;
 				console.log(data);
-			})
-			// $scope.locations = {message: "London, UK", last_updated: "a few minutes ago"};
-
+			});
 	}]);
+
+	myApp.controller('WhereNextController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/where_next").success(function(data) {
+				$scope.where_next = data;
+				console.log(data);
+			});
+	}]);
+
 
 	// function WhereNowController($scope) {
 	// 	$scope.locations = {message: "London, UK", last_updated: "a few minutes ago"};

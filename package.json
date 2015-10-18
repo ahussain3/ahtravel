@@ -12,6 +12,7 @@
     "body-parser": "~1.4.3",
     "express": "~4.6.1",
     "mongoose": "~3.8.13",
+    "morgan": "^1.6.1",
     "path": "^0.12.7"
   },
   "devDependencies": {
