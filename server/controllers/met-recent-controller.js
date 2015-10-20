@@ -1,8 +1,14 @@
 var moment = require('moment');
 var model = require('../models/index.js');
 
-function prepareObject (obj) {
+function preparePacket (packet) {
+	var newPacket = packet;
+	newPacket.updated_message = "updated " + moment(packet.last_updated).fromNow();
 
+	var temp_strings = packet.message.split(" ");
+	newPacket.short_message = temp_strings.slice(1,50).join(" ");
+
+	return newPacket;	
 };
 
 module.exports.create = function (req, res) {
@@ -24,33 +30,21 @@ module.exports.list = function (req, res) {
 	model.met_recent.find().sort({last_updated: -1})
 	.exec( function (err, results) {
 		if (err) return console.error(err);
-		var newRes = results.map(function(where) {
-			where.updated_message = "posted " + moment(where.last_updated).fromNow();
-
-			var temp_strings = where.message.split(" ");
-			where.short_message = temp_strings.slice(1,50).join(" ");
-
-			return where;
-		});
+		var newRes = results.map(preparePacket);
 		res.json(newRes);
 	});
 };
 
 module.exports.getLast = function (req, res) {
 	model.met_recent.find().sort({last_updated: -1}).limit(1)
-		.exec(function (err, wheres) {
+		.exec(function (err, packets) {
 			if (err) return console.error(err);
-			var where = wheres[0];
-			if (typeof(where) == 'undefined') return;
-
-			where.updated_message = "updated " + moment(where.last_updated).fromNow();
+			var packet = packets[0];
+			if (typeof(packet) == 'undefined') return;
+			res.json(preparePacket(packet));
 			
-			var temp_strings = where.message.split(" ");
-			where.short_message = temp_strings.slice(1,50).join(" ");
-
-			res.json(where);
 			// console.log(where);
-			console.log(where.message);
-			console.log(where.updated_message);
+			console.log(packet.message);
+			console.log(packet.updated_message);
 	});
 };

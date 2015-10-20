@@ -1,6 +1,17 @@
 var moment = require('moment');
 var model = require('../models/index.js');
 
+function preparePacket (packet) {
+	var newPacket = packet;
+	newPacket.updated_message = "updated " + moment(packet.last_updated).fromNow();
+	if (packet.leave_date) {
+		newPacket.leave_date_message = moment(packet.leave_date).startOf('day').fromNow();
+	} else {
+		newPacket.leave_date = "but I haven't set a date yet";
+	}
+	return newPacket;
+};
+
 module.exports.create = function (req, res) {
 	console.log("Post request recieved.");
 	console.log(req.body);
@@ -16,51 +27,28 @@ module.exports.create = function (req, res) {
 	});
 };
 
-function prepareObject (where) {
-	var newWhere = where;
-	newWhere.updated_message = "posted " + moment(where.last_updated).fromNow();
-	if (where.leave_date) {
-		newWhere.leave_date_message = moment(where.leave_date).startOf('day').fromNow();
-	} else {
-		newWhere.leave_date = "but I haven't set a date yet";
-	}
-	return newWhere;
-};
-
 module.exports.list = function (req, res) {
 	model.where_next.find().sort({last_updated: -1})
 	.exec( function (err, results) {
 		if (err) return console.error(err);
-		var newRes = results.map(function(where) {
-			where.updated_message = "posted " + moment(where.last_updated).fromNow();
-			if (where.leave_date) {
-				where.leave_date_message = moment(where.leave_date).startOf('day').fromNow();
-			} else {
-				where.leave_date = "but I haven't set a date yet";
-			}
-			return where;
-		});
+		var newRes = results.map(preparePacket);
 		res.json(newRes);
 	});
 };
 
 module.exports.getLast = function (req, res) {
 	model.where_next.find().sort({last_updated: -1}).limit(1)
-		.exec(function (err, wheres) {
+		.exec(function (err, packets) {
 			if (err) return console.error(err);
-			var where = wheres[0];
-			if (typeof(where) == 'undefined') return;
-			where.updated_message = "updated " + moment(where.last_updated).fromNow();
-			if (where.leave_date) {
-				where.leave_date_message = moment(where.leave_date).startOf('day').fromNow();
-			} else {
-				where.leave_date = "but I haven't set a date yet";
-			}
-			res.json(where);
+			var packet = packets[0];
+			if (typeof(packet) == 'undefined') return;
+			res.json(preparePacket(packet));
+
+
 			// console.log(where);
-			console.log(where.message);
-			console.log(where.updated_message);
-			console.log(where.leave_date);
-			console.log(where.leave_date_message);
+			console.log(packet.message);
+			console.log(packet.updated_message);
+			console.log(packet.leave_date);
+			console.log(packet.leave_date_message);
 	});
 };

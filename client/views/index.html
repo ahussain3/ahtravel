@@ -25,6 +25,14 @@
 		<h4>{{ met_rec.updated_message }}</h4>
 	</div>
 
+	<div ng-cloak ng-controller="ReadNowController">
+		<h2>What I'm reading</h2>
+		<ul>
+			<li ng-repeat="book in reading_now"><h3>{{ book.book }}</h3></li>
+		</ul>
+		<h4>{{ reading_now[0].updated_message }}</h4>
+	</div>
+
 
 <script type="text/javascript">
 	var myApp = angular.module('myApp', []);
@@ -50,6 +58,12 @@
 			});
 	}]);
 
+	myApp.controller('ReadNowController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/reading_now").success(function(data) {
+				$scope.reading_now = data;
+				console.log(data);
+			});
+	}]);
 
 
 	// function WhereNowController($scope) {
