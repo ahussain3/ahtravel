@@ -2,6 +2,7 @@ var whereNowController = require('./controllers/where-now-controller.js');
 var whereNextController = require('./controllers/where-next-controller.js');
 var metRecController = require('./controllers/met-recent-controller.js');
 var readNowController = require('./controllers/reading-now-controller.js');
+var journalEntryController = require('./controllers/journal-entry-controller.js');
 
 
 var path = require('path');
@@ -26,6 +27,11 @@ module.exports = function(app) {
 	app.post('/api/reading_now', readNowController.create);
 	app.get('/api/reading_now', readNowController.getLastFewBooks);
 	app.get('/api/reading_now_list', readNowController.list);
+
+	app.post('/api/journal_entry', journalEntryController.create);
+	app.get('/api/journal_entry', journalEntryController.getLast);
+	app.get('/api/journal_entry_list', journalEntryController.list);
+
 
 	// application --------
 	app.get('/', function (req, res) {

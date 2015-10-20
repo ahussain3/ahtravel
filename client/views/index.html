@@ -21,18 +21,23 @@
 
 	<div ng-cloak ng-controller="MetRecentController">
 		<h2>Someone I've met recently</h2>
-		<h3>{{ met_rec.short_message }}... <a href="#">Read More</a></h3>
+		<p>{{ met_rec.short_message }}... <a href="#">Read More</a></p>
 		<h4>{{ met_rec.updated_message }}</h4>
 	</div>
 
 	<div ng-cloak ng-controller="ReadNowController">
 		<h2>What I'm reading</h2>
 		<ul>
-			<li ng-repeat="book in reading_now"><h3>{{ book.book }}</h3></li>
+			<li ng-repeat="book in reading_now">{{ book.book }}</li>
 		</ul>
 		<h4>{{ reading_now[0].updated_message }}</h4>
 	</div>
 
+	<div ng-cloak ng-controller="JournalEntryController">
+		<h2>A Recent Journal Entry</h2>
+		<p>{{ journal_entry.short_body_text }}... <a href="#">Read More</a></p>
+		<h4>{{ journal_entry.updated_message }}</h4>
+	</div>
 
 <script type="text/javascript">
 	var myApp = angular.module('myApp', []);
@@ -61,6 +66,13 @@
 	myApp.controller('ReadNowController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/reading_now").success(function(data) {
 				$scope.reading_now = data;
+				console.log(data);
+			});
+	}]);
+
+	myApp.controller('JournalEntryController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/journal_entry").success(function(data) {
+				$scope.journal_entry = data;
 				console.log(data);
 			});
 	}]);
