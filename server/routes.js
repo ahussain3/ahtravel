@@ -3,7 +3,9 @@ var whereNextController = require('./controllers/where-next-controller.js');
 var metRecController = require('./controllers/met-recent-controller.js');
 var readNowController = require('./controllers/reading-now-controller.js');
 var journalEntryController = require('./controllers/journal-entry-controller.js');
-
+var blogPostController = require('./controllers/blog-post-controller.js');
+var somethingBigController = require('./controllers/something-big-controller.js');
+var somethingSmallController = require('./controllers/something-small-controller.js');
 
 var path = require('path');
 
@@ -32,6 +34,17 @@ module.exports = function(app) {
 	app.get('/api/journal_entry', journalEntryController.getLast);
 	app.get('/api/journal_entry_list', journalEntryController.list);
 
+	app.post('/api/blog_post', blogPostController.create);
+	app.get('/api/blog_post', blogPostController.getLast);
+	app.get('/api/blog_post_list', blogPostController.list);
+
+	app.post('/api/something_big', somethingBigController.create);
+	app.get('/api/something_big', somethingBigController.getLast);
+	app.get('/api/something_big_list', somethingBigController.list);
+
+	app.post('/api/something_small', somethingSmallController.create);
+	app.get('/api/something_small', somethingSmallController.getLast);
+	app.get('/api/something_small_list', somethingSmallController.list);
 
 	// application --------
 	app.get('/', function (req, res) {

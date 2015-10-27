@@ -1,0 +1,58 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* TEXT ================== */
+h2 { /* answers */
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+h3 { /* titles */ 
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1.4em;
+	text-align: left;
+}
+
+h4 { /* questions */
+	font-family: 'Noto Serif', serif;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: .05em;
+}
+
+h5 { /* updated messages */
+	font-family: 'Noto Serif', 'Garamond', serif;
+	font-size: .8em;
+	text-align: left;
+}
+
+p {
+	font-family: 'Noto Serif', 'Garamond', serif;
+	font-size: 1em;
+	text-align: left;
+	line-height: 1.5em;
+}
+
+
+.grid {
+	border: 1px solid red;
+	overflow: hidden;
+}
+
+[class*='col-'] {
+	border: 1px solid blue;
+	padding: 0 20px;
+	background-color: lightgray;
+	/*background-color: #3498db;*/
+	margin-bottom: -9999px;
+	padding-bottom: 9999px;
+}
+
+h1 {
+	color: red;
+}
