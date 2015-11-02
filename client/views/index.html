@@ -4,7 +4,7 @@
 	<title>Awais Hussain</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="/styles/reset.css">
-	<link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Coustard|Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/styles/mygrid.css">
 	<link type="text/css" rel="stylesheet" href="/styles/style.css">
 	<style type="text/css">
@@ -15,14 +15,14 @@
 
 
 <div class="grid grid-pad">
-	<div class="col-2-4">
-		<div ng-cloak ng-controller="WhereNowController">
-			<p class="" ="wn_basic">Right now, I'm in</p>
-			<h1 class="" ="wn_big">{{ where_now.message }}</h1>
+	<div id="sec_wn" class="col-2-4">
+		<div class="wn_main" ng-cloak ng-controller="WhereNowController">
+			<p class="wn_basic">Right now, I'm in</p>
+			<h1 class="wn_big">{{ where_now.message | uppercase}}</h1>
 			<p class="wn_basic">and I've been here since</p>
 			<h2 class="wn_med">{{where_now.since}}</h2>
 		</div>
-		<div ng-cloak ng-controller="WhereNextController">
+		<div class="wn_next" ng-cloak ng-controller="WhereNextController">
 			<p>Next, I'm going to {{ where_next.message | uppercase}} on {{where_next.since}} </p>
 		</div>
 	</div>

@@ -17,7 +17,7 @@ h3 { /* titles */
 	text-align: left;
 }
 
-h4 { /* questions */
+h4 {
 	font-family: 'Noto Serif', serif;
 	font-size: .9em;
 	font-weight: bold;
@@ -53,6 +53,53 @@ p {
 	padding-bottom: 9999px;
 }
 
-h1 {
-	color: red;
+/* SECTION SPECIFIC ================== */
+/* WHERE_NOW ================== */
+
+#sec_wn {
+	background-color: #6488CE;
+	border: solid white 5px;
 }
+.wn_big {
+	font-weight: bold;
+	font-size: 3em;
+	color: white;
+	text-align: center;
+}
+
+.wn_basic {
+	font-weight: 300;
+	font-size: 1em;
+	color: #DDDDDD;
+	text-align: center;
+}
+
+.wn_med {
+	font-weight: 400;
+	font-size: 2.4em;
+	color: white;
+	text-align: center;
+}
+
+.wn_main {
+	font-family: "PT Sans", sans-serif;
+	text-align: center;
+	margin-top: 50px;
+	line-height: 50px;
+}
+
+.wn_next {
+	font-family: "PT Sans", sans-serif;
+	font-size: 1em;
+	text-align: center;
+	color: white;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.wn_next p {
+	text-align: center;	
+}
+
+/* JOURNAL_ENTRY ================== */
+
