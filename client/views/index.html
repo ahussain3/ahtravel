@@ -15,10 +15,16 @@
 
 
 <div class="grid grid-pad">
-	<div class="col-2-4" ng-cloak ng-controller="WhereNowController">
-		<h4>Where I am now</h4>
-		<h2>{{ where_now.message }}</h2>
-		<h5>{{ where_now.updated_message }}</h5>
+	<div class="col-2-4">
+		<div ng-cloak ng-controller="WhereNowController">
+			<p class="" ="wn_basic">Right now, I'm in</p>
+			<h1 class="" ="wn_big">{{ where_now.message }}</h1>
+			<p class="wn_basic">and I've been here since</p>
+			<h2 class="wn_med">{{where_now.since}}</h2>
+		</div>
+		<div ng-cloak ng-controller="WhereNextController">
+			<p>Next, I'm going to {{ where_next.message | uppercase}} on {{where_next.since}} </p>
+		</div>
 	</div>
 
 	<div class="col-2-4" ng-cloak ng-controller="JournalEntryController">
@@ -77,13 +83,15 @@
 		<h5>{{ reading_now[0].updated_message }}</h5>
 	</div>
 </div>	
-
+<script type="text/javascript" src="/js/moment.js"></script>
 <script type="text/javascript">
+
 	var myApp = angular.module('myApp', []);
 	
 	myApp.controller('WhereNowController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/where_now").success(function(data) {
 				$scope.where_now = data;
+				$scope.where_now.since = moment(data.last_updated).format("MMM Do 'YY");
 				console.log(data);
 			});
 	}]);
@@ -91,6 +99,7 @@
 	myApp.controller('WhereNextController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/where_next").success(function(data) {
 				$scope.where_next = data;
+				$scope.where_next.since = moment(data.last_updated).format("MMM Do 'YY");
 				console.log(data);
 			});
 	}]);
