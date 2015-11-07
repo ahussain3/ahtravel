@@ -171,7 +171,22 @@ h6 { /* updated messages */
 	background-color: #806EBE;
 }
 
-:-moz-placeholder, ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+
+:-ms-input-placeholder {  
     color: white;
     font-family: 'PT Sans', sans-serif;
 }

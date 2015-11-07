@@ -161,10 +161,10 @@
 	}]);
 
 	myApp.controller('leaveMessageController', ["$scope", "$http", function ($scope, $http){
-			console.log("Form submit recieved!");
 			$scope.formSubmitted = false;
 
 			$scope.processForm = function () {
+				console.log("Form submit recieved!");
 				$scope.formSubmitted = true;
 			}
 	}]);
