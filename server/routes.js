@@ -6,6 +6,7 @@ var journalEntryController = require('./controllers/journal-entry-controller.js'
 var blogPostController = require('./controllers/blog-post-controller.js');
 var somethingBigController = require('./controllers/something-big-controller.js');
 var somethingSmallController = require('./controllers/something-small-controller.js');
+var leaveMessageController = require('./controllers/leave-message-controller.js');
 
 var path = require('path');
 
@@ -45,6 +46,8 @@ module.exports = function(app) {
 	app.post('/api/something_small', somethingSmallController.create);
 	app.get('/api/something_small', somethingSmallController.getLast);
 	app.get('/api/something_small_list', somethingSmallController.list);
+
+	app.post('/api/leave_message', leaveMessageController.send);
 
 	// application --------
 	app.get('/', function (req, res) {

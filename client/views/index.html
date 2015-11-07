@@ -53,8 +53,22 @@
 
 	<div class="grid-inner-2-4">
 	<div>
-		<div id="sec_mes" class="col-4-4" ng-cloak>
+		<div id="sec_mes" class="col-4-4" ng-cloak ng-controller="leaveMessageController">
 			<h4>Leave me a message.</h4>
+			<div class="lm_success" ng-show="formSubmitted">Your message has been sent, thanks! :) <div class="lm_smaller">I'll do my best to respond soon!</div></div>
+
+			<form class="lm_form" action="/api/leave_message" method="post" ng-hide="formSubmitted" ng-submit="processForm()">
+				<textarea name="message" id="message" cols="50" rows="5" placeholder="Type here..."></textarea>
+				<!-- <input type="text" name="message" placeholder="Type here..."> -->
+				<!-- <div> -->
+				<input type="text" id="name" name="name" placeholder="NAME">
+				<input type="text" id="email" name="email" placeholder="EMAIL">
+				<!-- </div> -->
+				<input type="submit" id="submit" name="submit" value="SEND">
+
+
+			</form>
+
 		</div>
 
 		<div id="sec_mr" class="col-4-4" ng-cloak ng-controller="MetRecentController">
@@ -121,33 +135,11 @@
 			});
 	}]);
 
-	myApp.controller('MetRecentController', ["$scope", "$http", function ($scope, $http){
-			$http.get("http://127.0.0.1:3000/api/met_recent").success(function(data) {
-				$scope.met_rec = data;
-				$scope.met_rec.updated = moment(data.last_updated).fromNow();
-				console.log(data);
-			});
-	}]);
-
-	myApp.controller('ReadNowController', ["$scope", "$http", function ($scope, $http){
-			$http.get("http://127.0.0.1:3000/api/reading_now").success(function(data) {
-				$scope.reading_now = data;
-				console.log(data);
-			});
-	}]);
 
 	myApp.controller('JournalEntryController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/journal_entry").success(function(data) {
 				$scope.journal_entry = data;
 				$scope.journal_entry.posted = moment(data.last_updated).fromNow();
-				console.log(data);
-			});
-	}]);
-
-	myApp.controller('BlogPostController', ["$scope", "$http", function ($scope, $http){
-			$http.get("http://127.0.0.1:3000/api/blog_post").success(function(data) {
-				$scope.blog_post = data;
-				$scope.blog_post.updated = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);
@@ -164,6 +156,38 @@
 			$http.get("http://127.0.0.1:3000/api/something_small").success(function(data) {
 				$scope.s_small = data;
 				$scope.s_small.updated = moment(data.last_updated).fromNow();
+				console.log(data);
+			});
+	}]);
+
+	myApp.controller('leaveMessageController', ["$scope", "$http", function ($scope, $http){
+			console.log("Form submit recieved!");
+			$scope.formSubmitted = false;
+
+			$scope.processForm = function () {
+				$scope.formSubmitted = true;
+			}
+	}]);
+
+	myApp.controller('MetRecentController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/met_recent").success(function(data) {
+				$scope.met_rec = data;
+				$scope.met_rec.updated = moment(data.last_updated).fromNow();
+				console.log(data);
+			});
+	}]);
+
+	myApp.controller('BlogPostController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/blog_post").success(function(data) {
+				$scope.blog_post = data;
+				$scope.blog_post.updated = moment(data.last_updated).fromNow();
+				console.log(data);
+			});
+	}]);
+
+	myApp.controller('ReadNowController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/reading_now").success(function(data) {
+				$scope.reading_now = data;
 				console.log(data);
 			});
 	}]);

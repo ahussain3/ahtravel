@@ -171,6 +171,66 @@ h6 { /* updated messages */
 	background-color: #806EBE;
 }
 
+:-moz-placeholder, ::-webkit-input-placeholder {
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.lm_success {
+	/*display: none;*/
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.2em;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+.lm_smaller {
+	font-size: 0.8em;
+	color: #DDDDDD;
+	padding: 5px;
+}
+
+*:focus {
+	outline: none;
+}
+
+.lm_form {	
+	margin-top: 10px;
+}
+
+
+form input {
+	border: 1px solid white;
+	background-color: #806EBE;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	color: white;
+}
+
+form textarea {
+	width: 100%;
+	border: 1px solid white;
+	background-color: #806EBE;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	color: white;
+	padding: 5px;
+}
+
+form #submit {
+	background-color: white;
+	color: #806EBE;
+	font-weight: bold;
+	border: 4px solid white;
+}
+
+form #name, form #email {
+	width: 40%;
+	padding: 5px;
+}
+
+
 /* MET_RECENTLY ================== */
 #sec_mr {
 	background-color: #D8B368;
@@ -195,7 +255,5 @@ h6 { /* updated messages */
 	padding-left: 30px;
 	color: white;
 }
-
-
 
 
