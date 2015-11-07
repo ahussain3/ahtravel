@@ -13,52 +13,58 @@
 </head>
 <body ng-app='myApp'>
 
-
+<!-- First section (Where now, Journal) -->
 <div class="grid grid-pad">
 	<div id="sec_wn" class="col-2-4">
 		<div class="wn_main" ng-cloak ng-controller="WhereNowController">
 			<p class="wn_basic">Right now, I'm in</p>
 			<h1 class="wn_big">{{ where_now.message | uppercase}}</h1>
 			<p class="wn_basic">and I've been here since</p>
-			<h2 class="wn_med">{{where_now.since}}</h2>
+			<h2 class="wn_med">{{where_now.since | uppercase}}</h2>
 		</div>
 		<div class="wn_next" ng-cloak ng-controller="WhereNextController">
-			<p>Next, I'm going to {{ where_next.message | uppercase}} on {{where_next.since}} </p>
+			<p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{where_next.since | uppercase}}</span> </p>
 		</div>
 	</div>
 
-	<div class="col-2-4" ng-cloak ng-controller="JournalEntryController">
-		<h4>My Most Recent Diary Entry</h4>
-		<p>{{ journal_entry.short_body_text }}... <a href="#">Read More</a></p>
-		<h5>{{ journal_entry.updated_message }}</h5>
+	<div id="sec_je" class="col-2-4" ng-cloak ng-controller="JournalEntryController">
+		<div>
+			<h4>My Most Recent Diary Entry</h4>
+			<h6>posted {{ journal_entry.posted }}</h6>
+
+			<p class="je_main">{{ journal_entry.short_body_text }}... <a href="#"><span class='read_more'>Read More</span></a></p>
+		</div>
 	</div>
 </div>
 
+
+<!-- Second Section, Big Idea, Leave Message, Met Recent, Something Small -->
 <div class="grid grid-pad">
-	<div class="col-1-4" ng-cloak ng-controller="WhereNextController">
-		<h4>Where I'm going next</h4>
-		<h2>{{ where_next.message }}: {{where_next.leave_date_message}}</h2>
-		<h5>{{ where_next.updated_message }}</h5>
+	<div id="sec_si" class="col-1-4" ng-cloak ng-controller="SomethingSmallController">
+			<h4>A Small Idea I've Been Thinking About</h4>
+			<h6>updated {{ s_small.updated }}</h6>
+
+			<p class="content_main">{{ s_small.message }}</p>
 	</div>
 
 	<div class="grid-inner-2-4">
-		<div class="col-4-4" ng-cloak ng-controller="SomethingBigController">
-			<h4>A Big Idea I've Been Thinking About</h4>
-			<p>{{ s_big.message }}</p>
-			<h5>{{ s_big.updated_message }}</h5>
+	<div>
+		<div id="sec_mes" class="col-4-4" ng-cloak>
+			<h4>Leave me a message.</h4>
 		</div>
 
-		<div class="col-4-4" ng-cloak ng-controller="SomethingSmallController">
-			<h4>A Small Idea I've Been Thinking About</h4>
-			<p>{{ s_small.message }}</p>
-			<h5>{{ s_small.updated_message }}</h5>
+		<div id="sec_mr" class="col-4-4" ng-cloak ng-controller="MetRecentController">
+			<h4>Someone I've met recently</h4>
+			<h6>updated {{ met_rec.updated }}</h6>
+			<p class="je_main">{{ met_rec.short_message }}... <a href="#">Read More</a></p>
 		</div>
 	</div>
+	</div>
 
-	<div class="col-1-4" ng-cloak ng-controller="MetRecentController">
-		<h4>Someone I've met recently</h4>
-		<p>{{ met_rec.short_message }}... <a href="#">Read More</a></p>
-		<h5>{{ met_rec.updated_message }}</h5>
+	<div id="sec_bi" class="col-1-4" ng-cloak ng-controller="SomethingBigController">
+		<h4>A Big Idea I've Been Thinking About</h4>
+		<h6>updated {{ s_big.updated }}</h6>
+		<p class="content_main">{{ s_big.message }}</p>
 	</div>	
 </div>
 
@@ -66,21 +72,28 @@
 <div class="grid">
 </div> -->
 
+<!-- Third Section (blog, reading) -->
 <div class="grid grid-pad">
-	<div class="col-2-4" ng-cloak ng-controller="BlogPostController">
+	<div id="sec_bp" class="col-5-8" ng-cloak ng-controller="BlogPostController">
 		<h4>My Most Recent Blog Post</h4>
-		<h3>{{ blog_post.title }} </h3>
-		<p>{{ blog_post.short_description }}</p>
-		<a ng-href="{{ blog_post.link }}" target="_blank">Go to full article</a>
-		<h5>{{ blog_post.updated_message }}</h5>
+		<h3 class="blog_title">{{ blog_post.title }} </h3>
+		<h6>posted {{ blog_post.updated }}</h6>
+
+		<div class="je_main">
+			<p>{{ blog_post.short_description }}</p>
+			<a ng-href="{{ blog_post.link }}" target="_blank">Go to full article</a>
+		</div>
+
 	</div>
 
-	<div class="col-2-4" ng-cloak ng-controller="ReadNowController">
+	<div id="sec_rn" class="col-3-8" ng-cloak ng-controller="ReadNowController">
 		<h4>What I'm reading</h4>
-		<ul>
-			<li ng-repeat="book in reading_now">{{ book.book }}</li>
-		</ul>
-		<h5>{{ reading_now[0].updated_message }}</h5>
+		<h6>{{ reading_now[0].updated_message }}</h6>
+		<div class="content_main">
+			<ul>
+				<li ng-repeat="book in reading_now"><p>{{ book.book }}</p></li>
+			</ul>			
+		</div>
 	</div>
 </div>	
 <script type="text/javascript" src="/js/moment.js"></script>
@@ -107,6 +120,7 @@
 	myApp.controller('MetRecentController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/met_recent").success(function(data) {
 				$scope.met_rec = data;
+				$scope.met_rec.updated = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);
@@ -121,6 +135,7 @@
 	myApp.controller('JournalEntryController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/journal_entry").success(function(data) {
 				$scope.journal_entry = data;
+				$scope.journal_entry.posted = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);
@@ -128,6 +143,7 @@
 	myApp.controller('BlogPostController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/blog_post").success(function(data) {
 				$scope.blog_post = data;
+				$scope.blog_post.updated = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);
@@ -135,6 +151,7 @@
 	myApp.controller('SomethingBigController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/something_big").success(function(data) {
 				$scope.s_big = data;
+				$scope.s_big.updated = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);
@@ -142,6 +159,7 @@
 	myApp.controller('SomethingSmallController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/something_small").success(function(data) {
 				$scope.s_small = data;
+				$scope.s_small.updated = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);

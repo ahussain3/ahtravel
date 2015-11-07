@@ -5,60 +5,80 @@
 }
 
 /* TEXT ================== */
-h2 { /* answers */
-	font-family: 'Droid Sans', sans-serif;
-	font-size: 2.5em;
-	text-align: center;
+p {
+	font-family: "PT Serif", "Garamond", serif;
+	font-size: 1em;
+	/*letter-spacing: .05em;*/
+	line-height: 1.2em;
+	font-weight: 100;
+	color: white;
 }
 
-h3 { /* titles */ 
-	font-family: 'Droid Sans', sans-serif;
+h3 { /* Blog post title */
+	font-family: 'PT Sans', sans-serif;
 	font-size: 1.4em;
 	text-align: left;
+	color: white;
 }
 
-h4 {
-	font-family: 'Noto Serif', serif;
-	font-size: .9em;
+h4 { /* titles */ 
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.5em;
 	font-weight: bold;
-	text-align: center;
 	letter-spacing: .05em;
-}
-
-h5 { /* updated messages */
-	font-family: 'Noto Serif', 'Garamond', serif;
-	font-size: .8em;
+	line-height: 1.3em;
 	text-align: left;
+	text-transform: uppercase;
+	color: white;
 }
 
-p {
-	font-family: 'Noto Serif', 'Garamond', serif;
-	font-size: 1em;
+h6 { /* updated messages */
+	font-family: 'PT Sans', sans-serif;
+	font-size: .875em;
 	text-align: left;
-	line-height: 1.5em;
+	font-weight: 200;
+	color: #DDDDDD;
 }
 
+.content_main {
+	padding-left: 10px;
+	padding-top: 20px;
+}
 
 .grid {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	overflow: hidden;
 }
 
 [class*='col-'] {
-	border: 1px solid blue;
-	padding: 0 20px;
+	/*border: 1px solid blue;*/
+	/*padding: 0 20px;*/
 	background-color: lightgray;
 	/*background-color: #3498db;*/
-	margin-bottom: -9999px;
-	padding-bottom: 9999px;
+	/*margin-bottom: -9999px;*/
+	/*padding-bottom: 9999px;*/
 }
 
 /* SECTION SPECIFIC ================== */
+[id*='sec'] {
+	border: solid white 5px;
+	padding: 20px;
+
+}
+
+.read_more {
+	font-weight: bold;
+}
+
+.read_more:hover {
+	font-style: underline;
+}
+
+
 /* WHERE_NOW ================== */
 
 #sec_wn {
 	background-color: #6488CE;
-	border: solid white 5px;
 }
 .wn_big {
 	font-weight: bold;
@@ -84,22 +104,82 @@ p {
 .wn_main {
 	font-family: "PT Sans", sans-serif;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 30px;
 	line-height: 50px;
 }
 
 .wn_next {
-	font-family: "PT Sans", sans-serif;
-	font-size: 1em;
-	text-align: center;
-	color: white;
 	margin-top: 50px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .wn_next p {
 	text-align: center;	
+	text-align: center;
+}
+
+.key_info {
+	font-family: "PT Sans", sans-serif;
+	font-size: 1.3em;
+	color: white;
+
 }
 
 /* JOURNAL_ENTRY ================== */
+#sec_je {
+	background-color: #C1677F;
+}
+
+.je_main {
+	padding-left: 40px;
+	padding-top: 20px;
+	/*font-family: "PT Serif", "Garamond", serif;*/
+	/*font-size: 0.8em;*/
+	/*letter-spacing: .05em;*/
+	/*line-height: 1.3em;*/
+	/*color: white;*/
+}
+
+/* SMALL_IDEA ================== */
+#sec_si {
+	background-color: #4E9CB5;
+}
+
+/* BIG_IDEA ================== */
+#sec_bi {
+	background-color: #4BAB78;
+}
+
+/* MESSAGE ================== */
+#sec_mes {
+	background-color: #806EBE;
+}
+
+/* MET_RECENTLY ================== */
+#sec_mr {
+	background-color: #D8B368;
+}
+
+/* BLOG_POST ================== */
+#sec_bp {
+	background-color: #7B7E97;
+}
+
+.blog_title {
+	margin-top: 10px;
+}
+
+/* READING_NOW ================== */
+#sec_rn {
+	background-color: #C67756;
+}
+
+#sec_rn ul {
+	list-style-type: square;
+	padding-left: 30px;
+	color: white;
+}
+
+
+
 

@@ -1,12 +1,14 @@
 var moment = require('moment');
 var model = require('../models/index.js');
 
+var words_in_short = 200;
+
 function preparePacket (packet) {
 	var newPacket = packet;
 	newPacket.updated_message = "last updated " + moment(packet.last_updated).fromNow();
 	
 	var temp_strings = packet.body_text.split(" ");
-	newPacket.short_body_text = temp_strings.slice(1,50).join(" ");
+	newPacket.short_body_text = temp_strings.slice(1,words_in_short).join(" ");
 
 	return newPacket;
 };

@@ -9,6 +9,8 @@
 .grid {
 	max-width: 960px;
 	margin: auto;
+	display: flex;
+	flex-direction: row;
 }
 
 .grid:after {
@@ -37,7 +39,14 @@
 .grid-inner-2-4 {
 	width: 50%;
 	float: left;
-	padding-right: 0px;
+}
+
+.col-5-8 {
+	width: 62.5%;
+}
+
+.col-3-8 {
+	width: 37.5%;
 }
 
 .col-1-4 {
@@ -54,11 +63,29 @@
 
 .col-4-4 {
 	width: 100%;
+
 }
 
 /*  GO FULL WIDTH AT LESS THAN 720 PIXELS */
 
 @media only screen and (max-width: 720px) {
+	.grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.col-5-8 {
+		width: 100%;
+	}
+
+	.col-3-8 {
+		width: 100%;
+	}
+
+	.grid-inner-2-4 {
+		width: 100%;
+	}
+
 	.col-1-4 {
 		width: 100%; 
 	}
