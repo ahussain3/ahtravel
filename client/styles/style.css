@@ -5,6 +5,14 @@
 }
 
 /* TEXT ================== */
+.page_title {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 3em;
+	color: #444444;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+}
+
 p {
 	font-family: "PT Serif", "Garamond", serif;
 	font-size: 1em;
@@ -59,6 +67,8 @@ h6 { /* updated messages */
 	/*padding-bottom: 9999px;*/
 }
 
+
+
 /* SECTION SPECIFIC ================== */
 [id*='sec'] {
 	border: solid white 5px;
@@ -74,6 +84,12 @@ h6 { /* updated messages */
 	font-style: underline;
 }
 
+/* TITLE / MENU BAR ================== */
+.title {
+	padding: 10px 10px 1px 10px;
+	text-align: center;
+
+}
 
 /* WHERE_NOW ================== */
 
