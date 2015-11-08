@@ -29,6 +29,10 @@
 		<div class="wn_next" ng-cloak ng-controller="WhereNextController">
 			<p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{where_next.since | uppercase}}</span> </p>
 		</div>
+
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="/where">Full History ></a>
+		</div>
 	</div>
 
 	<div id="sec_je" class="col-2-4" ng-cloak ng-controller="JournalEntryController">
@@ -38,6 +42,10 @@
 
 			<p class="je_main">{{ journal_entry.short_body_text }}... <a href="#"><span class='read_more'>Read More</span></a></p>
 		</div>
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="#">Full History ></a>
+		</div>
+
 	</div>
 </div>
 
@@ -49,6 +57,10 @@
 			<h6>updated {{ s_small.updated }}</h6>
 
 			<p class="content_main">{{ s_small.message }}</p>
+
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="#">Full History ></a>
+		</div>
 	</div>
 
 	<div class="grid-inner-2-4">
@@ -75,6 +87,10 @@
 			<h4>Someone I've met recently</h4>
 			<h6>updated {{ met_rec.updated }}</h6>
 			<p class="je_main">{{ met_rec.short_message }}... <a href="#">Read More</a></p>
+
+			<div class="full_list_link">
+				<a class="full_list_link_text" href="#">Full History ></a>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -83,6 +99,10 @@
 		<h4>A Big Idea I've Been Thinking About</h4>
 		<h6>updated {{ s_big.updated }}</h6>
 		<p class="content_main">{{ s_big.message }}</p>
+		
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="#">Full History ></a>
+		</div>
 	</div>	
 </div>
 
@@ -102,6 +122,10 @@
 			<a ng-href="{{ blog_post.link }}" target="_blank">Go to full article</a>
 		</div>
 
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="#">Full History ></a>
+		</div>
+
 	</div>
 
 	<div id="sec_rn" class="col-3-8" ng-cloak ng-controller="ReadNowController">
@@ -111,6 +135,10 @@
 			<ul>
 				<li ng-repeat="book in reading_now"><p>{{ book.book }}</p></li>
 			</ul>			
+		</div>
+
+		<div class="full_list_link">
+			<a class="full_list_link_text" href="#">Full History ></a>
 		</div>
 	</div>
 </div>	

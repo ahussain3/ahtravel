@@ -67,13 +67,32 @@ h6 { /* updated messages */
 	/*padding-bottom: 9999px;*/
 }
 
+.full_list_link {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+.full_list_link_text {
+	font-family: 'PT Sans', sans-serif;
+	font-size: .875em;
+	text-align: right;
+	font-weight: 200;
+	color: #DDDDDD;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.full_list_link_text:hover {
+	text-decoration: underline;
+}
 
 
 /* SECTION SPECIFIC ================== */
 [id*='sec'] {
 	border: solid white 5px;
 	padding: 20px;
-
+	position: relative;
 }
 
 .read_more {
