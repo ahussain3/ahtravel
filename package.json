@@ -1,5 +1,5 @@
 {
-  "name": "site",
+  "name": "ahtravel",
   "version": "0.0.1",
   "description": "Awais's dashboard site",
   "main": "server.js",
@@ -21,5 +21,24 @@
     "chai": "^3.3.0",
     "mocha": "^2.3.3",
     "sinon": "^1.17.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahussain3/ahtravel.git"
+  },
+  "keywords": [
+    "awais",
+    "hussain",
+    "travel",
+    "dashboard",
+    "site"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahussain3/ahtravel/issues"
+  },
+  "homepage": "https://github.com/ahussain3/ahtravel#readme"
 }
