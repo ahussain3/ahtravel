@@ -62,4 +62,19 @@ module.exports = function(app) {
 		res.sendFile(viewDir + "journal_entries.html");
 	});
 
+	app.get('/small', function (req, res) {
+		res.sendFile(viewDir + "small_ideas.html");
+	});
+
+	app.get('/big', function (req, res) {
+		res.sendFile(viewDir + "big_ideas.html");
+	});
+
+	app.get('/met', function (req, res) {
+		res.sendFile(viewDir + "met_recent.html");
+	});
+
+	app.get('/reading', function (req, res) {
+		res.sendFile(viewDir + "reading.html");
+	});
 };

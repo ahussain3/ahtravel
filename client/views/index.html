@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Awais Hussain</title>
+	<link rel="icon" type="image/png" href="/assets/favicon.png">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="/styles/reset.css">
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700' rel='stylesheet' type='text/css'>
@@ -22,7 +24,7 @@
 	<div id="sec_wn" class="col-2-4">
 		<div class="wn_main" ng-cloak ng-controller="WhereNowController">
 			<p class="wn_basic">Right now, I'm in</p>
-			<h1 class="wn_big">{{ where_now.message | uppercase}}</h1>
+			<h1 class="wn_big"><a href="/where">{{ where_now.message | uppercase}}</a></h1>
 			<p class="wn_basic">and I've been here since</p>
 			<h2 class="wn_med">{{where_now.since | uppercase}}</h2>
 		</div>
@@ -37,10 +39,10 @@
 
 	<div id="sec_je" class="col-2-4" ng-cloak ng-controller="JournalEntryController">
 		<div>
-			<h4>My Most Recent Diary Entry</h4>
+			<h4><a href="/diary">My Most Recent Diary Entry</a></h4>
 			<h6>posted {{ journal_entry.posted }}</h6>
 
-			<p class="je_main">{{ journal_entry.short_body_text }}... <a href="/diary"><span class='read_more'>Read More</span></a></p>
+			<p class="je_main">{{ journal_entry.short_body_text }}... <a href="/diary" class='read_more'>Read More ></a></p>
 		</div>
 		<div class="full_list_link">
 			<a class="full_list_link_text" href="/diary">Full History ></a>
@@ -53,13 +55,13 @@
 <!-- Second Section, Big Idea, Leave Message, Met Recent, Something Small -->
 <div class="grid">
 	<div id="sec_si" class="col-1-4" ng-cloak ng-controller="SomethingSmallController">
-			<h4>A Small Idea I've Been Thinking About</h4>
+			<h4><a href="/small">A Small Idea I've Been Thinking About</a></h4>
 			<h6>updated {{ s_small.updated }}</h6>
 
 			<p class="content_main">{{ s_small.message }}</p>
 
 		<div class="full_list_link">
-			<a class="full_list_link_text" href="#">Full History ></a>
+			<a class="full_list_link_text" href="/small">Full History ></a>
 		</div>
 	</div>
 
@@ -84,24 +86,24 @@
 		</div>
 
 		<div id="sec_mr" class="col-4-4" ng-cloak ng-controller="MetRecentController">
-			<h4>Someone I've met recently</h4>
+			<h4><a href="/met">Someone I've met recently</a></h4>
 			<h6>updated {{ met_rec.updated }}</h6>
-			<p class="je_main">{{ met_rec.short_message }}... <a href="#">Read More</a></p>
+			<p class="je_main">{{ met_rec.short_message }}... <a href="/met" class='read_more'>Read More ></a></p>
 
 			<div class="full_list_link">
-				<a class="full_list_link_text" href="#">Full History ></a>
+				<a class="full_list_link_text" href="/met">Full History ></a>
 			</div>
 		</div>
 	</div>
 	</div>
 
 	<div id="sec_bi" class="col-1-4" ng-cloak ng-controller="SomethingBigController">
-		<h4>A Big Idea I've Been Thinking About</h4>
+		<h4><a href="/big">A Big Idea I've Been Thinking About</a></h4>
 		<h6>updated {{ s_big.updated }}</h6>
 		<p class="content_main">{{ s_big.message }}</p>
 		
 		<div class="full_list_link">
-			<a class="full_list_link_text" href="#">Full History ></a>
+			<a class="full_list_link_text" href="/big">Full History ></a>
 		</div>
 	</div>	
 </div>
@@ -114,22 +116,22 @@
 <div class="grid">
 	<div id="sec_bp" class="col-5-8" ng-cloak ng-controller="BlogPostController">
 		<h4>My Most Recent Blog Post</h4>
-		<h3 class="blog_title">{{ blog_post.title }} </h3>
+		<h3 class="blog_title"><a ng-href="{{ blog_post.link }}" target="_blank">{{ blog_post.title }} </a></h3>
 		<h6>posted {{ blog_post.updated }}</h6>
 
 		<div class="je_main">
 			<p>{{ blog_post.short_description }}</p>
-			<a ng-href="{{ blog_post.link }}" target="_blank">Go to full article</a>
+			<p class="read_more_under"><a ng-href="{{ blog_post.link }}" target="_blank" >Full Article ></a></p>
 		</div>
 
 		<div class="full_list_link">
-			<a class="full_list_link_text" href="#">Full History ></a>
+			<a class="full_list_link_text" href="https://medium.com/@ahussain4" target="_blank">See all posts ></a>
 		</div>
 
 	</div>
 
 	<div id="sec_rn" class="col-3-8" ng-cloak ng-controller="ReadNowController">
-		<h4>What I'm reading</h4>
+		<h4><a href="/reading">What I'm reading</a></h4>
 		<h6>{{ reading_now[0].updated_message }}</h6>
 		<div class="content_main">
 			<ul>
@@ -138,7 +140,7 @@
 		</div>
 
 		<div class="full_list_link">
-			<a class="full_list_link_text" href="#">Full History ></a>
+			<a class="full_list_link_text" href="/reading">Full History ></a>
 		</div>
 	</div>
 </div>	

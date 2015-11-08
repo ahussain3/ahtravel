@@ -20,7 +20,7 @@
 	<div class="col-4-4">
 		<div class="title">
 			<h1 class="page_title">AWAIS HUSSAIN</h1>
-			<p><a class="go_back journal" href="/"> < back </a></p>
+			<p><a class="go_back met_rec" href="/"> < back </a></p>
 		</div>
 	</div>
 
@@ -28,12 +28,12 @@
 	<div class="content_wrapper">
 		<div class="col-4-4" ng-controller="JournalEntryController">
 
-		   	<h2 class="journal">My Diary Entries</h2> 
+		   	<h2 class="met_rec">Some People I've met</h2> 
 
-		   	<div class="content" ng-repeat="entry in journal_entries">
-		   		<h3 class="journal">{{entry.updated | uppercase}}</h3>
-		   		<p>{{entry.body_text}}</p>
-		   		<hr class="journal">
+		   	<div class="content" ng-repeat="entry in met_recents">
+		   		<h4 class="met_rec">posted {{entry.updated}}</h3>
+		   		<p>{{entry.message}}</p>
+		   		<hr class="met_rec">
 		   	</div>
 		</div>			
 	</div>
@@ -45,12 +45,12 @@
 	var myApp = angular.module('myApp', []);
 	
 	myApp.controller('JournalEntryController', ["$scope", "$http", function ($scope, $http){
-			$http.get("http://127.0.0.1:3000/api/journal_entry_list").success(function(data) {
+			$http.get("http://127.0.0.1:3000/api/met_recent_list").success(function(data) {
 				angular.forEach(data, function(value, key) {
-				  value.updated = moment(value.last_updated).format("ddd, MMMM Do YYYY");
+				  value.updated = moment(value.last_updated).fromNow();
 				});
 
-				$scope.journal_entries = data;
+				$scope.met_recents = data;
 				console.log(data);
 			});
 	}]);

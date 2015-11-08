@@ -15,6 +15,37 @@ hr.journal {
 	background-color: #C1677F;
 }
 
+.small_idea {
+	color: #4E9CB5;
+}
+
+hr.small_idea {
+	background-color: #4E9CB5;
+}
+
+.big_idea {
+	color: #4BAB78;
+}
+
+hr.big_idea {
+	background-color: #4BAB78;
+}
+
+.met_rec {
+	color: #D8B368;
+}
+
+hr.met_rec {
+	background-color: #D8B368;
+}
+
+.reading {
+	color: #C67756;
+}
+
+hr.reading {
+	background-color: #C67756;
+}
 
 
 
@@ -39,6 +70,15 @@ h3 { /* content headings */
 	margin-bottom: 10px;
 }
 
+h4 { /* e.g. posted 8 days ago */
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 10px;
+	text-transform: none;
+}
+
 .head_smaller {
 	font-size: 0.5em;
 }
@@ -52,6 +92,11 @@ p {
 	color: #444444;
 }
 
+.small_p {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 0.85em;
+}
+
 .sans_bold { 
 	font-family: 'PT Sans', sans-serif;
 	font-size: 1.2em;
@@ -61,7 +106,17 @@ p {
 .go_back {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 1em;
-	text-transform: uppercase;
+	text-transform: lowercase;
+}
+
+ul {
+	list-style-type: square;
+	padding-left: 30px;
+	color: #444444;
+}
+
+li {
+	padding-top: 10px;
 }
 
 /* LAYOUT ==================== */
@@ -76,7 +131,7 @@ p {
 }
 
 hr {
-	width: 80%;
+	width: 90%;
 	margin-left: 0;
 	margin-right: auto;
 	height: 2px;
