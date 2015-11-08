@@ -1,3 +1,25 @@
+/* COLORS ==================== */
+.where_now {
+	color: #6488CE;
+}
+
+hr.where_now {
+	background-color: #6488CE;
+}
+
+.journal {
+	color: #C1677F;
+}
+
+hr.journal {
+	background-color: #C1677F;
+}
+
+
+
+
+/* TEXT ==================== */
+
 h2 {  /* title */ 
 	font-family: 'PT Sans', sans-serif;
 	font-size: 2em;
@@ -6,7 +28,15 @@ h2 {  /* title */
 	line-height: 1.3em;
 	text-align: left;
 	text-transform: uppercase;
-	color: #6488CE;
+}
+
+h3 { /* content headings */
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	margin-bottom: 10px;
 }
 
 .head_smaller {
@@ -14,6 +44,11 @@ h2 {  /* title */
 }
 
 p {
+	font-family: "PT Serif", "Garamond", serif;
+	font-size: 1em;
+	/*letter-spacing: .05em;*/
+	line-height: 1.2em;
+	font-weight: 100;
 	color: #444444;
 }
 
@@ -23,8 +58,16 @@ p {
 	font-weight: bold;
 }
 
+.go_back {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+/* LAYOUT ==================== */
+
 .content_wrapper {
-	margin: 50px 20px 20px 50px;
+	margin: 50px 200px 20px 50px;
 	padding: 10px;
 }
 
@@ -37,17 +80,10 @@ hr {
 	margin-left: 0;
 	margin-right: auto;
 	height: 2px;
-	color: #6488CE;
-	background-color:#6488CE;
 	border: 0 none;
 }
 
-.go_back {
-	font-family: 'PT Sans', sans-serif;
-	font-size: 1em;
-	color: #6488CE;
-	text-transform: uppercase;
-}
+
 
 @media only screen and (max-width: 720px) {
 	.content_wrapper {

@@ -58,4 +58,8 @@ module.exports = function(app) {
 		res.sendFile(viewDir + "where_list.html");
 	});
 
+	app.get('/diary', function (req, res) {
+		res.sendFile(viewDir + "journal_entries.html");
+	});
+
 };
