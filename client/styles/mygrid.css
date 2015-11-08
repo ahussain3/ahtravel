@@ -13,14 +13,17 @@
 	flex-direction: row;
 }
 
+.grid_for_list {
+	max-width: 960px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+
 .grid:after {
 	content: "";
 	display: table;
 	clear: both;
-}
-
-.grid-pad {
-	/*padding: 20px 20px 20px 20px;*/
 }
 
 /*  GRID COLUMN SETUP   ==================================================================== */

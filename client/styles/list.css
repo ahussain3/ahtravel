@@ -1,0 +1,54 @@
+h2 {  /* title */ 
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	letter-spacing: .05em;
+	line-height: 1.3em;
+	text-align: left;
+	text-transform: uppercase;
+	color: #6488CE;
+}
+
+.head_smaller {
+	font-size: 0.5em;
+}
+
+p {
+	color: #444444;
+}
+
+.sans_bold { 
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.content_wrapper {
+	margin: 50px 20px 20px 50px;
+	padding: 10px;
+}
+
+.content {
+	margin-top: 20px;
+}
+
+hr {
+	width: 80%;
+	margin-left: 0;
+	margin-right: auto;
+	height: 2px;
+	color: #6488CE;
+	background-color:#6488CE;
+	border: 0 none;
+}
+
+@media only screen and (max-width: 720px) {
+	.content_wrapper {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	hr {
+		width: 95%;
+	}
+}

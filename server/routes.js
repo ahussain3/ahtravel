@@ -53,4 +53,9 @@ module.exports = function(app) {
 	app.get('/', function (req, res) {
 		res.sendFile(viewDir + "index.html");
 	});
+
+	app.get('/where', function (req, res) {
+		res.sendFile(viewDir + "where_list.html");
+	});
+
 };

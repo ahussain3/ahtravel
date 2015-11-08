@@ -18,7 +18,7 @@
 </div>
 
 <!-- First section (Where now, Journal) -->
-<div class="grid grid-pad">
+<div class="grid">
 	<div id="sec_wn" class="col-2-4">
 		<div class="wn_main" ng-cloak ng-controller="WhereNowController">
 			<p class="wn_basic">Right now, I'm in</p>
@@ -43,7 +43,7 @@
 
 
 <!-- Second Section, Big Idea, Leave Message, Met Recent, Something Small -->
-<div class="grid grid-pad">
+<div class="grid">
 	<div id="sec_si" class="col-1-4" ng-cloak ng-controller="SomethingSmallController">
 			<h4>A Small Idea I've Been Thinking About</h4>
 			<h6>updated {{ s_small.updated }}</h6>
@@ -91,7 +91,7 @@
 </div> -->
 
 <!-- Third Section (blog, reading) -->
-<div class="grid grid-pad">
+<div class="grid">
 	<div id="sec_bp" class="col-5-8" ng-cloak ng-controller="BlogPostController">
 		<h4>My Most Recent Blog Post</h4>
 		<h3 class="blog_title">{{ blog_post.title }} </h3>

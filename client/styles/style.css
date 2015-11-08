@@ -61,7 +61,7 @@ h6 { /* updated messages */
 [class*='col-'] {
 	/*border: 1px solid blue;*/
 	/*padding: 0 20px;*/
-	background-color: lightgray;
+	/*background-color: lightgray;*/
 	/*background-color: #3498db;*/
 	/*margin-bottom: -9999px;*/
 	/*padding-bottom: 9999px;*/
@@ -87,7 +87,7 @@ h6 { /* updated messages */
 /* TITLE / MENU BAR ================== */
 .title {
 	padding: 10px 10px 1px 10px;
-	text-align: center;
+	text-align: left;
 
 }
 
@@ -131,7 +131,6 @@ h6 { /* updated messages */
 
 .wn_next p {
 	text-align: center;	
-	text-align: center;
 }
 
 .key_info {

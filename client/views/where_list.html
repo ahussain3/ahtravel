@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Awais Hussain</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles/reset.css">
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/styles/mygrid.css">
+	<link type="text/css" rel="stylesheet" href="/styles/style.css">
+	<link type="text/css" rel="stylesheet" href="/styles/list.css">
+
+	<style type="text/css">
+
+	</style>
+</head>
+<body ng-app='myApp'>
+
+<div class="grid_for_list body_wrapper">
+	<div class="col-4-4">
+		<div class="title">
+			<h1 class="page_title">AWAIS HUSSAIN</h1>
+			<p><a class="go_back" href="/"> < Go back </a></p>
+		</div>
+	</div>
+
+
+	<div class="content_wrapper">
+		<div class="col-4-4" ng-controller="WhereNowController">
+
+		   	<h2>Places I've Travelled To <span class="head_smaller">(so far... :)</span></h2> 
+
+		   	<div class="content" ng-repeat="place in where_now_list">
+		   		<p><span class="sans_bold">{{place.message | uppercase}}</span> on {{place.updated}}</p>
+		   		<hr>
+		   	</div>
+		</div>			
+	</div>
+</div>
+
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript">
+
+	var myApp = angular.module('myApp', []);
+	
+	myApp.controller('WhereNowController', ["$scope", "$http", function ($scope, $http){
+			$http.get("http://127.0.0.1:3000/api/where_now_list").success(function(data) {
+				angular.forEach(data, function(value, key) {
+				  value.updated = moment(value.last_updated).format("MMMM Do YYYY");
+				});
+
+				$scope.where_now_list = data;
+				console.log(data);
+			});
+	}]);
+
+</script>
+
+</body>
+</html>
