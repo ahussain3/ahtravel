@@ -42,6 +42,13 @@ hr {
 	border: 0 none;
 }
 
+.go_back {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	color: #6488CE;
+	text-transform: uppercase;
+}
+
 @media only screen and (max-width: 720px) {
 	.content_wrapper {
 		margin-left: 0px;
