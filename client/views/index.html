@@ -29,7 +29,7 @@
 			<h2 class="wn_med">{{where_now.since | uppercase}}</h2>
 		</div>
 		<div class="wn_next" ng-cloak ng-controller="WhereNextController">
-			<p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{where_next.since | uppercase}}</span> </p>
+			<p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{ where_next.leave_message | uppercase}}</span> </p>
 		</div>
 
 		<div class="full_list_link">
@@ -160,7 +160,7 @@
 	myApp.controller('WhereNextController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/where_next").success(function(data) {
 				$scope.where_next = data;
-				$scope.where_next.since = moment(data.last_updated).format("MMM Do 'YY");
+				$scope.where_next.leave_message = moment(data.leave_date).format("MMM Do 'YY");
 				console.log(data);
 			});
 	}]);
