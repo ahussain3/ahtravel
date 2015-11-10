@@ -9,15 +9,15 @@
     "test": "./node_modules/mocha/bin/mocha test"
   },
   "dependencies": {
-    "body-parser": "1.14.1",
-    "express": "4.13.3",
-    "express-generator": "4.13.1",
-    "moment": "2.10.6",
-    "mongodb": "2.0.45",
-    "mongoose": "4.1.10",
-    "morgan": "1.6.1",
-    "nodemailer": "1.8.0",
-    "path": "0.12.7"
+    "body-parser": "~1.14.1",
+    "express": "~4.13.3",
+    "express-generator": "~4.13.1",
+    "moment": "~2.10.6",
+    "mongodb": "~2.0.45",
+    "mongoose": "~4.1.10",
+    "morgan": "~1.6.1",
+    "nodemailer": "~1.8.0",
+    "path": "~0.12.7"
   },
   "devDependencies": {
     "chai": "^3.3.0",
