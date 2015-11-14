@@ -4,7 +4,10 @@ var appName = 'ahtravel';
 var username = 'ah';
 var startFile = 'server.js';
 
-var tmpDir = appName+'-' + new Date().getTime();
+var d = new Date();
+var now_string = d.getMonth() + "-" + d.getDate() + "-" + d.getFullYear() "_" + d.getHours() + d.getMinutes() + d.getSeconds();
+
+var tmpDir = appName+'-' + now_string;
 
 // configuration
 // plan.target('staging', [
