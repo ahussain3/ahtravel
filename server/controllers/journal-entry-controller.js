@@ -8,7 +8,7 @@ function preparePacket (packet) {
 	newPacket.updated_message = "last updated " + moment(packet.last_updated).fromNow();
 	
 	var temp_strings = packet.body_text.split(" ");
-	newPacket.short_body_text = temp_strings.slice(1,words_in_short).join(" ");
+	newPacket.short_body_text = temp_strings.slice(0,words_in_short).join(" ");
 
 	return newPacket;
 };

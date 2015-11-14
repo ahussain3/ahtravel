@@ -13,6 +13,7 @@ app.use(morgan('dev'));                                         // log every req
 app.use(express.static(__dirname + '/client'));
 
 var env = process.env.NODE_ENV || 'development';
+
 if ('production' === env) {
    // app.use(express.errorHandler()); 
    mongoose.connect('mongodb://localhost:27017/india');  
