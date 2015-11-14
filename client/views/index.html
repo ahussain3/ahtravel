@@ -17,6 +17,7 @@
 
 <div class="grid title">
 	<h1 class="page_title">AWAIS HUSSAIN</h1>
+	<h1 style="color:red;"> SOME LARGE VISIBLE CHANGE!! </h1>
 </div>
 
 <!-- First section (Where now, Journal) -->
@@ -25,11 +26,11 @@
 		<div class="wn_main" ng-cloak ng-controller="WhereNowController">
 			<p class="wn_basic">Right now, I'm in</p>
 			<h1 class="wn_big"><a href="/where">{{ where_now.message | uppercase}}</a></h1>
-			<p class="wn_basic">and I've been here since</p>
+			<p class="wn_basic">and I got here</p>
 			<h2 class="wn_med">{{where_now.since | uppercase}}</h2>
 		</div>
 		<div class="wn_next" ng-cloak ng-controller="WhereNextController">
-			<p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{ where_next.leave_message | uppercase}}</span> </p>
+			<!-- <p>Next, I'm going to <span class="key_info">{{ where_next.message | uppercase}}</span> on <span class="key_info">{{ where_next.leave_message | uppercase}}</span> </p> -->
 		</div>
 
 		<div class="full_list_link">
@@ -152,7 +153,7 @@
 	myApp.controller('WhereNowController', ["$scope", "$http", function ($scope, $http){
 			$http.get("http://127.0.0.1:3000/api/where_now").success(function(data) {
 				$scope.where_now = data;
-				$scope.where_now.since = moment(data.last_updated).format("MMM Do 'YY");
+				$scope.where_now.since = moment(data.last_updated).fromNow();
 				console.log(data);
 			});
 	}]);

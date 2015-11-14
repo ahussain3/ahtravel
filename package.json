@@ -12,6 +12,7 @@
     "body-parser": "~1.14.1",
     "express": "~4.13.3",
     "express-generator": "~4.13.1",
+    "forever-monitor": "^1.7.0",
     "moment": "~2.10.6",
     "mongodb": "~2.0.45",
     "mongoose": "~4.1.10",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
+    "flightplan": "^0.6.6",
     "mocha": "^2.3.3",
     "sinon": "^1.17.1"
   },
