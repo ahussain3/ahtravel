@@ -5,8 +5,9 @@ function preparePacket (packet) {
 	var newPacket = packet;
 	newPacket.updated_message = "updated " + moment(packet.last_updated).fromNow();
 
-	var temp_strings = packet.message.split(" ");
-	newPacket.short_message = temp_strings.slice(0,50).join(" ");
+	var temp_strings = packet.message.split(".");
+	temp_strings = temp_strings[0].split(" ");
+	newPacket.short_message = temp_strings.slice(0,35).join(" ");
 	
 	return newPacket;
 };
