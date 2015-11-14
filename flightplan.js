@@ -2,7 +2,7 @@ var plan = require('flightplan');
 
 var appName = 'ahtravel';
 var username = 'ah';
-var startFile = 'server.js';
+var startFile = '/opt/server.js';
 
 var tmpDir = appName+'-' + new Date().getTime();
 

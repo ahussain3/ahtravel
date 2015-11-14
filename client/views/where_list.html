@@ -44,7 +44,7 @@
 	var myApp = angular.module('myApp', []);
 	
 	myApp.controller('WhereNowController', ["$scope", "$http", function ($scope, $http){
-			$http.get("http://127.0.0.1:3000/api/where_now_list").success(function(data) {
+			$http.get("http://46.101.40.44:3000/api/where_now_list").success(function(data) {
 				angular.forEach(data, function(value, key) {
 				  value.updated = moment(value.last_updated).format("MMMM Do YYYY");
 				});
